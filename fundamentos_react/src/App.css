@@ -1,0 +1,11 @@
+.App .Cards {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+h1 {
+    text-transform: uppercase;
+    text-align: center;
+    
+}
