@@ -1,0 +1,9 @@
+.Display {
+    font-size: 1.8em;
+    grid-column: span 4;
+    background-color: rgba(116, 116, 116, 0.425);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 10px;
+}
