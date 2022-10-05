@@ -18,7 +18,7 @@ class Calculadora extends Component {
 
     constructor(props) {
         super(props)
-        this.clearMemory = this.clearMemory.bind(this)
+        this.clearMemory =  this.clearMemory.bind(this)
         this.addDigit = this.addDigit.bind(this)
         this.setOperation = this.setOperation.bind(this)
         
@@ -27,7 +27,29 @@ class Calculadora extends Component {
     clearMemory() {
         this.setState( initialState )
     }
-    setOperation(op) {
+    setOperation(operation) {
+        console.log(operation)
+        if (this.state.current === 0) {
+            this.setState({ operation, current: 1, clearDisplay: true })
+        
+        } else {
+            const equals = operation === '='
+            const currentOperation = this.state.operation
+
+            const values = [...this.state.values]
+            
+            values[0] = eval(`${values[0]} ${currentOperation} ${values[1]}`)
+           
+            
+            values[1] = 0
+
+            this.setState({
+                displayValue: values[0],
+                operation: equals ? null : operation,
+                current: equals ? 0 : 1,
+                clearDisplay: !equals,
+            })
+        }
         
     }
     addDigit(digit) {
